@@ -45,6 +45,9 @@ The <action> type attribute can be add,update,fix,remove.
   </properties>
   <body>
     <release version="1.0-alpha3" date="2020-??-??" description="Third 1.0 alpha release">
+      <action issue="IMAGING-168" dev="kinow" type="fix" due-to="Yavuz Kavus">
+        Encoding Support for IPTC metadata.
+      </action>
       <action issue="IMAGING-283" dev="kinow" type="add" due-to="Wanja Gayk">
         Add CIELAB and DIN99 conversion, reduce code duplication, and issues related to zero-division and precision.
       </action>
@@ -58,10 +61,10 @@ The <action> type attribute can be add,update,fix,remove.
         Bump maven-checkstyle-plugin from 3.1.1 to 3.1.2 #117.
       </action>
       <action dev="kinow" type="update" due-to="Dependabot">
-        Bump spotbugs from 4.0.6 to 4.2.2 #111 #118 #123.
+        Bump spotbugs from 4.0.6 to 4.2.3 #111 #118 #123 #128.
       </action>
       <action dev="kinow" type="update" due-to="Dependabot">
-        Bump spotbugs-maven-plugin from 4.0.4 to 4.2.0 #111 #115.
+        Bump spotbugs-maven-plugin from 4.0.4 to 4.2.3 #111 #115 #125 #129.
       </action>
       <action dev="kinow" type="update" due-to="Dependabot">
         Bump maven-pmd-plugin from 3.13.0 to 3.14.0 #109.
@@ -79,7 +82,7 @@ The <action> type attribute can be add,update,fix,remove.
         ArrayIndexOutOfBoundsException on reading simple GeoTIFF.
       </action>
       <action dev="kinow" type="update" due-to="Dependabot">
-        Bump actions/setup-java from v1.4.0 to v1.4.3 #92 #95 #101.
+        Bump actions/setup-java from v1.4.0 to v2 #92 #95 #101 #127.
       </action>
       <action dev="kinow" type="update" due-to="Dependabot">
         Bump commons-io from 2.7 to 2.8.0 #96.
@@ -95,6 +98,30 @@ The <action> type attribute can be add,update,fix,remove.
       </action>
       <action issue="IMAGING-263" dev="kinow" type="fix" due-to="Gary Lucas">
         Failure when reading a partial raster from a floating-point TIFF
+      </action>
+      <action issue="IMAGING-291" dev="kinow" type="fix" due-to="Arturo Bernal">
+        Fix typos
+      </action>
+      <action issue="IMAGING-289" dev="kinow" type="fix" due-to="Arturo Bernal">
+        Fix javadoc
+      </action>
+      <action issue="IMAGING-290" dev="kinow" type="update" due-to="Arturo Bernal">
+        Remove redundant local variable
+      </action>
+      <action issue="IMAGING-288" dev="kinow" type="update" due-to="Arturo Bernal">
+        Java 8 improvements
+      </action>
+      <action issue="IMAGING-287" dev="kinow" type="update" due-to="Arturo Bernal">
+        Simplify assertions in tests
+      </action>
+      <action issue="IMAGING-295" dev="kinow" type="update" due-to="Arturo Bernal">
+        Use 'compare()' method to compare numbers
+      </action>
+      <action issue="IMAGING-294" dev="kinow" type="update" due-to="Arturo Bernal">
+        Use java style array declaration
+      </action>
+      <action issue="IMAGING-298" dev="kinow" type="update" due-to="OSS-Fuzz">
+        Throw ImageReadException if the PNG parser is given an image with invalid ICC Profile.
       </action>
     </release>
     <release version="1.0-alpha2" date="2020-08-01" description="Second 1.0 alpha release">

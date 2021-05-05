@@ -228,10 +228,10 @@ public class GifImageParser extends ImageParser implements XmpEmbeddable {
 
     private GenericGifBlock readGenericGIFBlock(final InputStream is, final int code,
             final byte[] first) throws IOException {
-        final List<byte[]> subblocks = new ArrayList<>();
+        final List<byte[]> subBlocks = new ArrayList<>();
 
         if (first != null) {
-            subblocks.add(first);
+            subBlocks.add(first);
         }
 
         while (true) {
@@ -239,10 +239,10 @@ public class GifImageParser extends ImageParser implements XmpEmbeddable {
             if (bytes.length < 1) {
                 break;
             }
-            subblocks.add(bytes);
+            subBlocks.add(bytes);
         }
 
-        return new GenericGifBlock(code, subblocks);
+        return new GenericGifBlock(code, subBlocks);
     }
 
     private List<GifBlock> readBlocks(final GifHeaderInfo ghi, final InputStream is,
@@ -475,9 +475,8 @@ public class GifImageParser extends ImageParser implements XmpEmbeddable {
             final List<GifBlock> blocks = readBlocks(ghi, is, stopBeforeImageData,
                     formatCompliance);
 
-            final GifImageContents result = new GifImageContents(ghi, globalColorTable,
+            return new GifImageContents(ghi, globalColorTable,
                     blocks);
-            return result;
         }
     }
 
@@ -1061,7 +1060,7 @@ public class GifImageParser extends ImageParser implements XmpEmbeddable {
                     lzwMinimumCodeSize, ByteOrder.LITTLE_ENDIAN, false); // GIF
             // Mode);
 
-            final byte[] imagedata = new byte[width * height];
+            final byte[] imageData = new byte[width * height];
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
                     final int argb = src.getRGB(x, y);
@@ -1080,11 +1079,11 @@ public class GifImageParser extends ImageParser implements XmpEmbeddable {
                         index = palette2.getPaletteIndex(rgb);
                     }
 
-                    imagedata[y * width + x] = (byte) index;
+                    imageData[y * width + x] = (byte) index;
                 }
             }
 
-            final byte[] compressed = compressor.compress(imagedata);
+            final byte[] compressed = compressor.compress(imageData);
             writeAsSubBlocks(bos, compressed);
 //            image_data_total += compressed.length;
         }

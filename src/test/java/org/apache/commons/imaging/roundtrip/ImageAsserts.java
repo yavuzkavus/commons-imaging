@@ -72,9 +72,8 @@ final class ImageAsserts {
         final int bRed = 0xff & (b >> 16);
         final int bGreen = 0xff & (b >> 8);
         final int bBlue = 0xff & (b >> 0);
-        final int diff = Math.abs(aAlpha - bAlpha) + Math.abs(aRed - bRed)
+        return Math.abs(aAlpha - bAlpha) + Math.abs(aRed - bRed)
                 + Math.abs(aGreen - bGreen) + Math.abs(aBlue - bBlue);
-        return diff;
 
     }
 
@@ -83,8 +82,8 @@ final class ImageAsserts {
         assertTrue(b.exists() && b.isFile());
         Assertions.assertEquals(a.length(), b.length());
 
-        final byte aData[] = FileUtils.readFileToByteArray(a);
-        final byte bData[] = FileUtils.readFileToByteArray(b);
+        final byte[] aData = FileUtils.readFileToByteArray(a);
+        final byte[] bData = FileUtils.readFileToByteArray(b);
 
         for (int i = 0; i < a.length(); i++) {
             final int aByte = 0xff & aData[i];

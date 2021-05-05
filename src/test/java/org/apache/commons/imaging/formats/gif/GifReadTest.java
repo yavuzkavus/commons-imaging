@@ -53,9 +53,7 @@ public class GifReadTest extends GifBaseTest {
     @ParameterizedTest
     @MethodSource("data")
     public void testMetadata(final File imageFile) {
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> {
-            Imaging.getMetadata(imageFile);
-        });
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getMetadata(imageFile));
     }
 
     @ParameterizedTest
@@ -102,7 +100,7 @@ public class GifReadTest extends GifBaseTest {
     @MethodSource("singleImageData")
     public void testBufferedImagesForSingleImageGif(final File imageFile) throws Exception {
         final List<BufferedImage> images = Imaging.getAllBufferedImages(imageFile);
-        assertTrue(images.size() == 1);
+        assertEquals(1, images.size());
     }
 
     @ParameterizedTest
